@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import random, re
 import numpy as np
 import pandas as pd
@@ -16,10 +13,6 @@ import matplotlib.pyplot as plt
 
 
 # # LDA implementation
-# 
-
-# In[2]:
-
 
 class LatentDirichletAllocation:
     
@@ -198,21 +191,16 @@ class GLM: # the Generalised Linear Model class
             # counting acuracy and error (mismatch for logistic regression)
             i = 0  
             accuracy_sum = 0
-            error_sum = 0
             for y in np.nditer(self.label_test):
                 if y != pred[i]:
-#                     error_sum +=1
                     i +=1
                 else:
                     accuracy_sum +=1
                     i +=1
-            return error_sum/len(pred), accuracy_sum/len(pred)
+            return accuracy_sum/len(pred)
 
 
 # # Supporting function for both part.
-
-# In[4]:
-
 
 # this function randomises the data set and then split it into examples and labels and returns the value
 def randomise_and_split(complete_data):
@@ -274,9 +262,6 @@ def read_all_files(directory):
 
 # # Main program
 
-# In[5]:
-
-
 # please provide any other directory name if the directory names are not same as given here. 
 # directory = "pp4data/artificial/" 
 directory = "pp4data/20newsgroups/"
@@ -286,19 +271,12 @@ directory = "pp4data/20newsgroups/"
 # please check the directory when the program is not implemented accordingly.
 labels = np.array(pd.read_csv("pp4data/20newsgroups/index.csv", header = None)[1]).reshape(200,1)
 
-
-# In[6]:
-
-
 # prior values and other constants
 docs = 200 # number of documents D
 topics = 20 # number of topics K
 alpha = 5.0/topics 
 beta = 0.01
 iterations = 500
-
-
-# In[63]:
 
 
 # load all the documents in code.
@@ -318,7 +296,6 @@ lda.collapsed_gibbs_sampling()
 most_frequent= lda.top_frequent(n=5) 
 end_time = time.time()
 print(end_time-start_time, "secs for Gibbs sampling.") 
-# print(most_frequent)
 
 
 # writing the top five most frequent words for each topic into a CSV file.
@@ -373,8 +350,7 @@ for i in range(30):
         run_time_lda.append(running_time_l)
         iterations_lda.append(iterr_l)
         # Do prediction using W_map and note the total error for each iteration.
-        errorsum, accuracy = logistic.predict(w_map_l)
-#         errors_lda.append(errorsum)
+        accuracy = logistic.predict(w_map_l)
         accuracy_lda.append(accuracy)
   
 
@@ -400,8 +376,7 @@ for i in range(30):
         run_time_bag.append(running_time_)
         iterations_bag.append(iterr_)
         # Do prediction using W_map and note the total error for each iteration.
-        errorsum, accuracy = logistic.predict(w_map_)
-#         errors_bag.append(errorsum)
+        accuracy = logistic.predict(w_map_)
         accuracy_bag.append(accuracy)
 
 
