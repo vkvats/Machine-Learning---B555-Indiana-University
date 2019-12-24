@@ -1,1 +1,11 @@
-this is the readME file for LDA analysis
+This folder contains the programming assignment 4 of the Machine Learning course taken by prof. Roni Khardon in Fall'19 session.  
+
+## The folder is organized as:
+
+- file name "pp4.pdf" contains the description of the question that was given for the assignment by the professor.  
+- file name "Latent_Dirichlet_Alloation_pp4.py" contains the complete code for the same. 
+- there is additional file named "LatenDirichletAllocation-PP4.ipynb", which also contains the complete code along with descriptive notes.
+- A picture is also there which plots the learning curve for LDA vs Bag-of-word model for the logistic regression.
+- A file, topicwords.csv, contains the top five most frequent topics that were found after LDA applicaiton through Gibb's sampling. 
+
+this is my original work from scratch. 
