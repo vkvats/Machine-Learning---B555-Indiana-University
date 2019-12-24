@@ -3,6 +3,6 @@ This repository contains all the projects works that was part of of MACHINE LEAR
 
 1.  
 2.  
-3.  
+3.  Bayesian Generalized Linear Model
 4.  Latent Dirichlet Allocation and Gibb's sampling
 
